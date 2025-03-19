@@ -2,7 +2,7 @@
   width: 100%;
   height: 80px;
   background-color:  #a1a5d3;
-  display: flex;
+  display: flex; 
   justify-content: start;
   align-items: center;
 }
@@ -14,7 +14,9 @@
   height: 80%;
   display: flex;
   align-items: end;
-
+}
+.menu-div:nth-child(1){
+  margin-left: 50px;
 }
 .menu{
   width: 60%;
@@ -29,7 +31,8 @@
   margin-top: 20px;
 }
 .titulo{
-  width: 100%;
+  width: 70%;
+  margin: auto;
   height: 70px;
   display: flex;
   align-items: center;
@@ -37,7 +40,7 @@
   margin-top: 40px;
   border-top: 8px solid #4f57ad;
   border-bottom:  8px solid #4f57ad;
-}
+} 
 #um{
   margin-bottom: 5px;
 }
@@ -47,7 +50,7 @@
   justify-content: center;
   height: 50px;
   position: relative;
-  left: 82%;   
+  left: 78%;   
 }
 .logo img{
   height: 150%;
@@ -58,4 +61,87 @@
   height: 100vw;
   background-color: #4f57ad;
   position: absolute;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+ul,li{
+  text-decoration: none;
+  list-style-type: none;
+}
+.colum{
+  width: 100%;
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+.row-list{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid gray;
+}
+.colum ul{
+  width: 100%;
+}
+.hover:hover{
+    transform: scale(1.0);
+    transition: 0.5s ease-out ;
+    background-color: rgb(214, 210, 210);
+}
+.row-event{
+  margin:40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: auto;
+}
+.row-event img{
+  width: 65%;
+  
+}
+.destaques{
+  width: 80%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.row-destaques{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+.hr-destaques{
+  width: 82%;
+  height: 10px;
+  background-color: #4f57ad;
+}
+.row-destaques h3{
+  width: 18%;
+}
+
+.row-noticias{
+  width: 100%;
+  height: auto;
+  margin: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card{
+  margin: 1%;
+}
+.imgCard{
+  width: 100%;
+  height: 100%;
 }
