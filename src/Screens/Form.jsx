@@ -1,4 +1,5 @@
 import react, {useRef} from "react";
+import Evento from "../Components/Evento";
 
 export default function Formulario(){
     const backend = 'http://localhost/RevistaDigital_API/posts'
@@ -26,7 +27,7 @@ export default function Formulario(){
                 descricao_post: descricao_post,
                 usuarios_id_usuario: usuarios_id_usuario,
                 categorias_id_categoria: categorias_id_categoria,
-                status_post: 0
+                status_post: 1
             }
             let arq = fileInputRef.current.files[0];
             let formData = new FormData();
@@ -56,6 +57,7 @@ export default function Formulario(){
     
     return(
         <>
+        <Evento></Evento>
         <div className="titulo">
             <h3>Formulario de postagem</h3>
         </div>
