@@ -33,7 +33,7 @@ export default function Menu() {
                         <ul className="list-group">
                             <li className="list-group-item hover"><Link to='/'>Inicio</Link> </li>
                             <li className="list-group-item hover"><Link to='/postar'>Postar</Link> </li>
-                            <li className="list-group-item hover"><Link to='/confirmar/post'>Confirmar Posts</Link></li>
+                            <li className="list-group-item hover"><Link to='/confirmar'>Confirmar Posts</Link></li>
                             <li className="list-group-item hover"><Link to='/perfil'>Perfil</Link></li>
                         </ul>
                     </div>

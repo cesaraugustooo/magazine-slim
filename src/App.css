@@ -139,9 +139,74 @@ ul,li{
   flex-wrap: wrap;
 }
 .card{
+  max-width: 30%;
+  max-height: 30%;
   margin: 1%;
 }
 .imgCard{
   width: 100%;
   height: 100%;
+}
+.view-posts{
+  width: 90%;
+  height: 500px;
+  margin:50px 12%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+}
+.card-post-view{
+  width: 90%;
+  margin-bottom: 2%;
+  height: 200px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.image-post-view{
+  margin-left:15%;
+  margin-right: 10px;
+  width: 40%;
+  height: 95%;
+}
+.image-post-view img{
+  width: 100%;
+  height: 100%;
+
+}
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: auto;
+  height: 95%;
+  flex-direction: column;
+  margin: 1%;
+}
+.title p{
+  font-size: x-large;
+}
+.info-post-view{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: 60%;
+  height: 100%;
+}
+
+.butons button{
+  margin: 10px;
+  width: 90%;
+}
+.btnn{
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  height: 100%;
+}
+.btnn button{
+  width: 50%;
+  margin: 10px;
 }
