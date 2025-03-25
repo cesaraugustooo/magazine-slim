@@ -1,8 +1,10 @@
-import react, {useRef} from "react";
+import react, {useRef,useEffect,useState} from "react";
 import Evento from "../Components/Evento";
+import Swal from "sweetalert2";
 
 export default function Formulario(){
     const backend = 'http://localhost/RevistaDigital_API/'
+    const [success,setSuccess] = useState([false]);
 
     let titulo_postRef = useRef(null);
     let fileInputRef = useRef(null);
@@ -10,7 +12,20 @@ export default function Formulario(){
     let usuarios_id_usuarioRef = useRef(null);
     let categorias_id_categoriaRef = useRef(null);
 
-
+    function successF(){
+        Swal.fire({
+            title: "Sucesso!",
+            icon: "success",
+            confirmButtonText: "OK"
+          });
+          
+    }
+    useEffect(() => {
+        if (success) {
+            successF();
+            setTimeout(() => setSuccess(false), 100); 
+        }
+    }, [success]);
     async function post(event){
 
         event.preventDefault();
@@ -49,7 +64,7 @@ export default function Formulario(){
                 body: JSON.stringify(dados)
             });
             console.log('Post enviado!!')
-    
+            setSuccess(1);
         }catch(error) {
             console.error("Erro ao enviar:", error);
         }
@@ -92,6 +107,7 @@ export default function Formulario(){
             <button type="submit" className="btn btn-primary w-100" onClick={post} >Enviar</button>
         </form>
         </div>
+       
         </>
     );
 }
