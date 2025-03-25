@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from "react";
-import Evento from "../assets/evento.png";
+import Evento from "../Components/Evento";
+
 export default function Confirmar(){
 
     const [materias,setMateria] = useState([]);
@@ -19,7 +20,17 @@ export default function Confirmar(){
         setMateria(data)
         console.log(materias);
     }
+    async function deleteNull(id){
+        try{
+            const response = await fetch(`${backend}/posts/${id}`,{
+                method: 'DELETE',
+            });
 
+            getNull();
+        }catch(error){
+            console.error('Erro', error);
+        }
+    }
     async function updateNull(id){
         try{
             const data={
@@ -41,6 +52,10 @@ export default function Confirmar(){
 
     return(
             <>
+            <Evento></Evento>
+             <div className="titulo">
+            <h3>Posts a confirmar</h3>
+        </div>
             <div id="view-posts" className="view-posts">
                 {materias.map((post)=>
                                     <div className="card-post-view" key={post.id_post}>
@@ -54,7 +69,7 @@ export default function Confirmar(){
                                                 </p>
                                                 <div className="btnn">
                                                     <button className="btn btn-success" onClick={()=>updateNull(post.id_post)}>Aceitar</button>
-                                                    <button className="btn btn-danger" >Recusar</button>
+                                                    <button className="btn btn-danger" onClick={()=>deleteNull(post.id_post)} >Recusar</button>
                                                 </div>
                                                
                                             </div>
