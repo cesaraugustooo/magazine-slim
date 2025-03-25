@@ -23,7 +23,7 @@ export default function Destaques(){
                 <div className="hr-destaques"></div>
             </div>
             <div className="row-noticias" id="noticias-home">
-                {data.slice(11,15).map((post) => 
+                {data.slice(0,7).map((post) => 
                     <div className="card" key={post.id_post}>
                             <img src={post.foto_post} className="imgCard" alt={post.titulo_post} />
                             <div className="card-body">
