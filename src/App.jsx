@@ -1,10 +1,10 @@
 import './App.css';
 import Header from './Components/Header'; 
-import Fluxo from './Screens/Fluxo';
 import Formulario from './Screens/Form';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Home from './Screens/Home';
 import Confirmar from './Screens/ConfirmarPost';
+import Noticia from './Screens/Noticia';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route path='/confirmar' element={<Confirmar></Confirmar>}></Route>
           <Route path='/' element={<Home />}></Route>
           <Route path='/postar' element={<Formulario></Formulario>}></Route>
-          <Route path='/confirmar/post' element={<Fluxo/>}></Route>
+          <Route path='/noticia/' element={<Noticia></Noticia>}></Route>
         </Routes>
       </BrowserRouter>
       
