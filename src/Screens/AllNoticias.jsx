@@ -4,6 +4,10 @@ export default function Matematicas(){
     const [noticias,setNoticias] = useState([]);
 
     const backend = 'http://localhost/RevistaDigital_API';
+    let url = window.location.pathname;
+
+    let route = url.replace("/noticias")
+    console.log(route)
 
     useEffect(()=>{
         getNoticias();
@@ -18,7 +22,7 @@ export default function Matematicas(){
         }catch(error){
             console.error('Erro',error);
         }
-    }
+    } 
     return(
         <>
         
