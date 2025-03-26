@@ -1,6 +1,10 @@
 import React from "react";
 import Evento from "../assets/evento.png";
 import Literario from "../assets/evento-literario.png"
+import evento from "../assets/evento-lembrancas.png"
+import evento2 from "../assets/evento2.jpg"
+import evento3 from "../assets/evento3.jpg"
+
 export default function Lembrancas(){
 
     return(
@@ -19,14 +23,14 @@ export default function Lembrancas(){
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img src={Literario} alt="" className="d-block w-100" />
+                <div className="carousel-item active card-carroseul">
+                    <img  src={evento} alt="" className="d-block w-100 img-carroseul" />
                 </div>
                 <div className="carousel-item">
-                    <img src={Literario} alt="" className="d-block w-100" />
+                    <img src={evento2} alt="" className="d-block w-100" />
                 </div>
                 <div className="carousel-item">
-                    <img src={Literario} alt="" className="d-block w-100" />
+                    <img src={evento3} alt="" className="d-block w-100" />
                 </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

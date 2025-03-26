@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from "react";
+import Footer from "../Components/Footer";
 
 export default function Noticia(){
 
@@ -7,6 +8,7 @@ export default function Noticia(){
              <div className="titulo">
             <h3>Categoria</h3>
         </div>
+        <Footer></Footer>
         </>
     );
 }

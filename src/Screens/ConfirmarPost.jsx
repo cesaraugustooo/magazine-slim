@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from "react";
 import Evento from "../Components/Evento";
+import Footer from "../Components/Footer";
 
 export default function Confirmar(){
 
@@ -79,6 +80,7 @@ export default function Confirmar(){
                                 </div>
                 )}
             </div>
+            <Footer></Footer>
             </>
         
     );

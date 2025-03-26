@@ -43,12 +43,13 @@ export default function Menu() {
                         </button>
                         <ul className="dropdown-menu">
                         <li><a className="dropdown-item" href="#">Matematica</a></li>
-                            <li><a className="dropdown-item" href="#">Historia</a></li>
-                            <li><a className="dropdown-item" href="#">Ciencias</a></li>
-                            <li><a className="dropdown-item" href="#">Linguagens</a></li>
-                            <li><a className="dropdown-item" href="#">Quimica</a></li>
-                            <li><a className="dropdown-item" href="#">Fisica</a></li>
-
+                            <li><Link to='/historia' className="dropdown-item" href="#">Historia</Link></li>
+                            <li><Link to='/matematica' className="dropdown-item" href="#">Matematica</Link></li>
+                            <li><Link to='/ciencias' className="dropdown-item" href="#">Ciencias</Link></li>
+                            <li><Link to='/quimica' className="dropdown-item" href="#">Quimica</Link></li>
+                            <li><Link to='/fisica' className="dropdown-item" href="#">Fisica</Link></li>
+                            <li><Link to='/linguagens' className="dropdown-item" href="#">Linguagens</Link></li>
+                            <li><Link to='/geografia' className="dropdown-item" href="#">Geografia</Link></li>
 
                         </ul>
                     </div>

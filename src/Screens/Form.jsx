@@ -1,6 +1,7 @@
 import react, {useRef,useEffect,useState} from "react";
 import Evento from "../Components/Evento";
 import Swal from "sweetalert2";
+import Footer from "../Components/Footer";
 
 export default function Formulario(){
     const backend = 'http://localhost/RevistaDigital_API/'
@@ -99,15 +100,20 @@ export default function Formulario(){
                 <label for="categorias_id_categoria" className="form-label">Categoria</label>
                 <input list="categorias" className="form-control" id="categorias_id_categoria" ref={categorias_id_categoriaRef} name="categorias_id_categoria"  required/>
                 <datalist id="categorias">
-                  <option value="1">Humanas</option>
+                  <option value="1">Matematica</option>
                   <option value="2">linguagens</option>
-                  <option value="3">Exatas</option>
+                  <option value="3">Quimica</option>
+                  <option value="4">Ciencias</option>
+                  <option value="5">Fisica</option>
+                  <option value="6">Geografia</option>
+                  <option value="7">Historia</option>
+
                 </datalist>
             </div>
             <button type="submit" className="btn btn-primary w-100" onClick={post} >Enviar</button>
         </form>
         </div>
-       
+        <Footer></Footer>
         </>
     );
 }
