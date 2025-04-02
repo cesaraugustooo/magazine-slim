@@ -1,6 +1,7 @@
 body{ 
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 .header{
   width: 100%;
@@ -28,6 +29,7 @@ body{
 }
 .row1{
   width: 70%;
+  padding-bottom:100px ;
   height: 80%;
   margin:50px auto;
 }
@@ -113,6 +115,7 @@ ul,li{
   width: 80%;
   height: auto;
   margin: auto;
+  padding-bottom: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,15 +156,18 @@ ul,li{
 }
 .view-posts{
   width: 90%;
-  height: 500px;
-  margin:50px 12%;
+  height: auto;
+  margin-left: 10%;
+  min-height: 500px;
+  /* margin:20px 12%; */
+  padding-bottom: 100px;
   display: flex;
   align-items: center;
   justify-content: start;
   flex-direction: column;
 }
 .card-post-view{
-  width: 90%;
+  width: 80%;
   margin-bottom: 2%;
   height: 200px;
   display: flex;
@@ -232,6 +238,10 @@ ul,li{
   color: white;
   display: flex;
   margin-top: 10%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 10%;
   align-items: center;
   justify-content: center;
 }
@@ -253,4 +263,54 @@ ul,li{
 .icon-font{
   font-size: 160%;
   margin-right: 5px;
+}
+.row-getcate{
+  width: 70%;
+  padding-bottom: 100px;
+  height: auto;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.not{
+  width: 30%;
+  margin: 1.6%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+}
+.not img{
+  width: 100%;
+  height: 100%;
+}
+.title-not{
+  position: absolute;
+  top: 90%;
+  color: aliceblue;
+
+}
+.not:hover{
+  transform: scale(1.1);
+  transition: .2s linear;
+  box-shadow: 7px 7px 10px #3e3e3e;
+}
+.row-not{
+  width: 55%;
+  height: auto;
+  margin:20px auto;
+  padding-bottom: 100px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row-not img{
+  width: 100%;
+  margin: 40px;
+  height: 300px;
 }

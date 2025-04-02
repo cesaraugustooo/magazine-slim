@@ -9,7 +9,6 @@ export default function Home(){
             <Evento></Evento>
             <Destaques></Destaques>
             <Lembrancas></Lembrancas>
-            <Footer></Footer>
         </>
     );
 }

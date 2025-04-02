@@ -1,9 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
 import menu from '../assets/menu.png';
 import logo from '../assets/image-removebg-preview (10).png';
 import { BrowserRouter, Link } from "react-router-dom";
 
 export default function Menu() {
+    useEffect(()=>{
+
+    },[])
     return (
         <>
             <div className="menu-div">
@@ -42,14 +45,13 @@ export default function Menu() {
                             Materias
                         </button>
                         <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="#">Matematica</a></li>
-                            <li><Link to='/historia' className="dropdown-item" href="#">Historia</Link></li>
-                            <li><Link to='/matematica' className="dropdown-item" href="#">Matematica</Link></li>
-                            <li><Link to='/ciencias' className="dropdown-item" href="#">Ciencias</Link></li>
-                            <li><Link to='/quimica' className="dropdown-item" href="#">Quimica</Link></li>
-                            <li><Link to='/fisica' className="dropdown-item" href="#">Fisica</Link></li>
-                            <li><Link to='/linguagens' className="dropdown-item" href="#">Linguagens</Link></li>
-                            <li><Link to='/geografia' className="dropdown-item" href="#">Geografia</Link></li>
+                            <li><Link to='noticias/1' className="dropdown-item">Historia</Link></li>
+                            <li><Link to='noticias/2' className="dropdown-item" >Matematica</Link></li>
+                            <li><Link to='noticias/3' className="dropdown-item" >Ciencias</Link></li>
+                            <li><Link to='noticias/4' className="dropdown-item" >Quimica</Link></li>
+                            <li><Link to='noticias/5' className="dropdown-item" >Fisica</Link></li>
+                            <li><Link to='noticias/6' className="dropdown-item" >Linguagens</Link></li>
+                            <li><Link to='noticias/7' className="dropdown-item" >Geografia</Link></li>
 
                         </ul>
                     </div>

@@ -14,8 +14,8 @@ export default function Destaques(){
         }
         getDestaques();
     },[]);
-   
 
+    
     return(
         <div className="destaques">
             <div className="row-destaques">
@@ -23,13 +23,11 @@ export default function Destaques(){
                 <div className="hr-destaques"></div>
             </div>
             <div className="row-noticias" id="noticias-home">
-                {data.slice(13,16).map((post) => 
-                    <div className="card" key={post.id_post}>
-                            <img src={post.foto_post} className="imgCard" alt={post.titulo_post} />
-                            <div className="card-body">
-                                <p className="card-text">{post.titulo_post}</p>
-                            </div>
-                        </div>
+                {data.slice(0,3).map((noticia) => 
+                     <div key={noticia.id_post} className="not">
+                     <img src={noticia.foto_post} alt="" />
+                     <h5  className="title-not">{noticia.titulo_post}</h5>
+                 </div>
 
                 )};
             </div>
