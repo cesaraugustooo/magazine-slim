@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 
 export default function Noticia() {
     const [noticias, setNoticias] = useState([]);
@@ -9,6 +9,7 @@ export default function Noticia() {
     const endpointCategoria = "http://localhost/RevistaDigital_API/categorias";
 
     let { id } = useParams();
+    let path = `noticia/${id}` 
 
     useEffect(()=>{
         setTimeout(()=>{
@@ -53,7 +54,8 @@ export default function Noticia() {
             <div className="row-getcate">
                 {noticias.length > 0 ?  noticias.map((noticia) => (
                     <div key={noticia.id_post} className="not">
-                        <img src={noticia.foto_post} alt="" />
+                        <Link to={{pathname: `/noticia/${noticia.id_post}`}}><img src={noticia.foto_post} alt="" />
+                       </Link>
                         <h5  className="title-not">{noticia.titulo_post}</h5>
                     </div>
                 )):<h3>Nenhuma noticia cadastrada</h3>}
