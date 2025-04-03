@@ -20,15 +20,22 @@ export default function InNoticia(){
     }
     console.log(noticia)
     return(
-        <>  {noticia.length > 0 ?
+        <>  {
             <div className="row-not">
-                <h3>{noticia.titulo_post}</h3>
+                <h2>{noticia.titulo_post}</h2>
+                <h5>{noticia.sub_titulo_post}</h5>
+                <br/>
                 <img src={noticia.foto_post} alt="" />
+                <br/>
                 <p>{noticia.descricao_post}</p>
+                <br/>
                 <img src={noticia.sub_foto_post} alt="" />
+                <br/>
+                <p>{noticia.sub_descricao_post}</p>
+                <br/>
 
-            </div>
-:<h2>Noticia não encontrada</h2>}
+            </div>  
+            }
         </>
     );
 }
