@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react";
 import Evento from "../Components/Evento";
 import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
 
 export default function Confirmar(){
 
@@ -61,16 +62,16 @@ export default function Confirmar(){
                 {materias.map((post)=>
                                     <div className="card-post-view" key={post.id_post}>
                                     <div className="image-post-view">
-                                        <img src={post.foto_post} alt="" />
+                                        <Link to={{pathname: `/noticia/${post.id_post}`}}><img src={post.foto_post} alt="" /></Link>
                                     </div>
                                     <div className="info-post-view">
                                             <div className="title">
-                                                <p>
+                                                <p className="p-confirm">
                                                     {post.titulo_post}
                                                 </p>
                                                 <div className="btnn">
-                                                    <button className="btn btn-success" onClick={()=>updateNull(post.id_post)}>Aceitar</button>
-                                                    <button className="btn btn-danger" onClick={()=>deleteNull(post.id_post)} >Recusar</button>
+                                                    <button className="btn btn-success btn-style" onClick={()=>updateNull(post.id_post)}>Aceitar</button>
+                                                    <button className="btn btn-danger btn-style" onClick={()=>deleteNull(post.id_post)} >Recusar</button>
                                                 </div>
                                                
                                             </div>
