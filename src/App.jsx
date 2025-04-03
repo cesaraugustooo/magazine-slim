@@ -18,7 +18,8 @@ function App() {
           <Route path='/' element={<Home />}></Route>
           <Route path='/postar' element={<Formulario></Formulario>}></Route>
           <Route path='/noticias/:id' element={<Noticia></Noticia>}></Route>
-          <Route path='/noticia/:param' element={<InNoticia></InNoticia>}></Route>
+          <Route path='noticia/:param' element={<InNoticia></InNoticia>}></Route>
+
 
         </Routes>
         <Footer></Footer>
