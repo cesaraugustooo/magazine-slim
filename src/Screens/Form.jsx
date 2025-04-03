@@ -14,6 +14,7 @@ export default function Formulario(){
     let categorias_id_categoriaRef = useRef(null);
     let titulo2_postRef = useRef(null);
     let fileInputRef2 = useRef(null);
+    let descricao_postRef2 = useRef(null);
 
     function successF(){
         Swal.fire({
@@ -39,6 +40,7 @@ export default function Formulario(){
         let categorias_id_categoria = categorias_id_categoriaRef.current.value;
         let titulo3_postRef = titulo2_postRef.current.value;
         let fileInputRef3 = fileInputRef2.current.files[0].name;
+        let descricao_post2 = descricao_postRef2.current.value;
         try{
             const dados ={
                 titulo_post: titulo_post,
@@ -48,7 +50,8 @@ export default function Formulario(){
                 categorias_id_categoria: categorias_id_categoria,
                 status_post: 0,
                 sub_titulo_post: titulo3_postRef,
-                sub_foto_post: `http://localhost/RevistaDigital_API/images/${fileInputRef3}`
+                sub_foto_post: `http://localhost/RevistaDigital_API/images/${fileInputRef3}`,
+                sub_descricao_post: descricao_post2
             }
             let arq = fileInputRef.current.files[0]
             let sub_arq = fileInputRef2.current.files[0]
@@ -112,7 +115,10 @@ export default function Formulario(){
                 <label for="descricao_post" className="form-label">Conteudo</label>
                 <input type="text" className="form-control" ref={descricao_postRef} id="descricao_post" name="descricao_post" required/>
             </div>
-           
+            <div className="mb-3">
+                <label for="descricao_post2" className="form-label">Sub conteudo</label>
+                <input type="text" className="form-control" ref={descricao_postRef2} id="descricao_post2" name="descricao_post2" required/>
+            </div>
             <div className="mb-3">
                 <label for="usuarios_id_usuario" className="form-label">ID User</label>
                 <input type="number" className="form-control" id="usuarios_id_usuario" ref={usuarios_id_usuarioRef} name="usuarios_id_usuario"  required/>
