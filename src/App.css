@@ -1,5 +1,6 @@
 body{ 
   height: 100vh;
+  margin-top: 150px;
   width: 100vw;
   overflow-x: hidden;
 }
@@ -8,6 +9,10 @@ body{
   height: 80px;
   background-color:  #a1a5d3;
   display: flex; 
+  position: fixed ;
+  top:0;
+  margin-bottom: 500px;
+  z-index: 1;
   justify-content: start;
   align-items: center;
 }
