@@ -54,9 +54,11 @@ export default function Noticia() {
             <div className="row-getcate">
                 {noticias.length > 0 ?  noticias.map((noticia) => (
                     <div key={noticia.id_post} className="not">
-                        <Link to={{pathname: `/noticia/${noticia.id_post}`}}><img src={noticia.foto_post} alt="" />
+                        <Link className="link" to={{pathname: `/noticia/${noticia.id_post}`}}><img src={noticia.foto_post} alt="" />
                        </Link>
-                        <h5  className="title-not">{noticia.titulo_post}</h5>
+                       <div className="title-not">
+                            <h5  className="">{noticia.titulo_post}</h5>
+                       </div>
                     </div>
                 )):<h3>Nenhuma noticia cadastrada</h3>}
             </div>

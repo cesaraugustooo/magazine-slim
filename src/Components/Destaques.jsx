@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import Evento from "../assets/evento.png";
-
+import { Link } from "react-router-dom";
 export default function Destaques(){
     const [data,innerData] = useState([]);
     useEffect(()=>{
@@ -23,9 +23,9 @@ export default function Destaques(){
                 <div className="hr-destaques"></div>
             </div>
             <div className="row-noticias" id="noticias-home">
-                {data.slice(0,3).map((noticia) => 
+                {data.slice(0,4).map((noticia) => 
                      <div key={noticia.id_post} className="not">
-                     <img src={noticia.foto_post} alt="" />
+                     <Link className="link" to={{pathname: `/noticia/${noticia.id_post}`}}><img src={noticia.foto_post} alt="" /></Link>
                      <h5  className="title-not">{noticia.titulo_post}</h5>
                  </div>
 
