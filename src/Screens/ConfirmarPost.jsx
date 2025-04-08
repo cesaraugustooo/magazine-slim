@@ -18,7 +18,6 @@ export default function Confirmar(){
         const api = await fetch(`${backend}/posts/null`);
 
         const data = await api.json();
-
         setMateria(data)
         console.log(materias);
     }
