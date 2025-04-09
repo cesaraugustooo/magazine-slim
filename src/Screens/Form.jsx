@@ -5,12 +5,11 @@ import Footer from "../Components/Footer";
 
 export default function Formulario(){
     const backend = 'http://localhost/RevistaDigital_API/'
-    const [success,setSuccess] = useState([false]);
+    // const [success,setSuccess] = useState([false]);
 
     let titulo_postRef = useRef(null);
     let fileInputRef = useRef(null);
     let descricao_postRef = useRef(null);
-    let usuarios_id_usuarioRef = useRef(null);
     let categorias_id_categoriaRef = useRef(null);
     let titulo2_postRef = useRef(null);
     let fileInputRef2 = useRef(null);
@@ -24,19 +23,18 @@ export default function Formulario(){
           });
           
     }
-    useEffect(() => {
-        if (success) {
-            successF();
-            setTimeout(() => setSuccess(false), 100); 
-        }
-    }, [success]);
+    // useEffect(() => {
+    //     if (success) {
+    //         successF();
+    //         setTimeout(() => setSuccess(false), 100); 
+    //     }
+    // }, [success]);
     async function post(event){
 
         event.preventDefault();
         let titulo_post = titulo_postRef.current.value;
         let fileInput = fileInputRef.current.files[0].name;
         let descricao_post = descricao_postRef.current.value;
-        let usuarios_id_usuario = usuarios_id_usuarioRef.current.value;
         let categorias_id_categoria = categorias_id_categoriaRef.current.value;
         let titulo3_postRef = titulo2_postRef.current.value;
         let fileInputRef3 = fileInputRef2.current.files[0].name;
@@ -46,7 +44,7 @@ export default function Formulario(){
                 titulo_post: titulo_post,
                 foto_post: `http://localhost/RevistaDigital_API/images/${fileInput}`,
                 descricao_post: descricao_post,
-                usuarios_id_usuario: usuarios_id_usuario,
+                usuarios_id_usuario: localStorage.getItem('id'),
                 categorias_id_categoria: categorias_id_categoria,
                 status_post: 0,
                 sub_titulo_post: titulo3_postRef,
@@ -76,12 +74,27 @@ export default function Formulario(){
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
                     
                 },
                 body: JSON.stringify(dados)
             });
+            if(response.status == 401){
+                Swal.fire({
+                    title: "Usuario sem permissão!",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                })
+            }else{
+                Swal.fire({
+                    title: "Sucesso!",
+                    icon: "success",
+                    confirmButtonText: "OK"
+                  });
+            }
+            console.log(response.status)
             console.log('Post enviado!!')
-            setSuccess(1);
+            // setSuccess(1);
         }catch(error) {
             console.error("Erro ao enviar:", error);
         }
@@ -119,10 +132,7 @@ export default function Formulario(){
                 <label for="descricao_post2" className="form-label">Sub conteudo</label>
                 <input type="text" className="form-control" ref={descricao_postRef2} id="descricao_post2" name="descricao_post2" required/>
             </div>
-            <div className="mb-3">
-                <label for="usuarios_id_usuario" className="form-label">ID User</label>
-                <input type="number" className="form-control" id="usuarios_id_usuario" ref={usuarios_id_usuarioRef} name="usuarios_id_usuario"  required/>
-            </div>
+            
             <div className="mb-3">
                 <label for="categorias_id_categoria" className="form-label">Categoria</label>
                 <input list="categorias" className="form-control" id="categorias_id_categoria" ref={categorias_id_categoriaRef} name="categorias_id_categoria"  required/>

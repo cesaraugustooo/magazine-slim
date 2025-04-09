@@ -2,6 +2,7 @@ import React,{useEffect,useState} from "react";
 import Footer from "../Components/Footer";
 import { useParams } from "react-router-dom";
 import evento2 from "../assets/evento2.jpg"
+import Comentarios from "../Components/Comentarios";
 
 
 export default function InNoticia(){
@@ -34,8 +35,11 @@ export default function InNoticia(){
                 <p>{noticia.sub_descricao_post}</p>
                 <br/>
 
+                <div className="coment">
+                </div>
             </div>  
             }
+           
         </>
     );
 }

@@ -8,6 +8,7 @@ import Noticia from './Screens/AllNoticias';
 import Footer from './Components/Footer';
 import InNoticia from './Screens/Noticia';
 import Login from './Screens/Login';
+import Cadastrarse from './Screens/Cadastrarse';
 
 function App() {
   return (
@@ -21,8 +22,11 @@ function App() {
           <Route path='/noticias/:id' element={<Noticia></Noticia>}></Route>
           <Route path='noticia/:param' element={<InNoticia></InNoticia>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
+          <Route path='/cadastrarse' element={<Cadastrarse></Cadastrarse>}></Route>
 
         </Routes>
+        <Footer></Footer>
+
       </BrowserRouter>
       
     </div>

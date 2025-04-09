@@ -15,7 +15,11 @@ export default function Confirmar(){
     },[]);
 
     async function getNull() {
-        const api = await fetch(`${backend}/posts/null`);
+        const api = await fetch(`${backend}/posts/null`,{
+            headers:{"Content-Type":"application/json",
+                "Authorization": `Bearer ${localStorage.getItem('token')}`
+            },
+        });
 
         const data = await api.json();
         setMateria(data)
@@ -25,6 +29,9 @@ export default function Confirmar(){
         try{
             const response = await fetch(`${backend}/posts/${id}`,{
                 method: 'DELETE',
+                headers:{"Content-Type":"application/json",
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
+                },
             });
 
             getNull();
@@ -39,7 +46,9 @@ export default function Confirmar(){
             }
             const response = await fetch(`${backend}/posts/${id}`,{
                 method: 'PATCH',
-                headers:{"Content-Type":"application/json"},
+                headers:{"Content-Type":"application/json",
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
+                },
                 body: JSON.stringify(data),
             })
             console.log('clicou')
