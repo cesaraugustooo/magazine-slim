@@ -438,8 +438,66 @@ ul,li{
   
 }
 .coment{
-  width: 100%;
-  height: 10%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 101%;
+  height: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
   margin: auto;
+}
+.profile-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #a1a5d3;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: #3a3a5e;
+}
+
+.btn-upload {
+  background-color: #a1a5d3;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition:  0.3s ease;
+}
+
+.btn-upload:hover {
+  background-color: #8f93c4;
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-info {
+    margin-top: 1rem;
+  }
 }
