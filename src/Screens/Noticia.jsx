@@ -34,11 +34,12 @@ export default function InNoticia(){
                 <br/>
                 <p>{noticia.sub_descricao_post}</p>
                 <br/>
-
                 <div className="coment">
-                </div>
-            </div>  
+            </div>
+            </div> 
             }
+            
+         
            
         </>
     );

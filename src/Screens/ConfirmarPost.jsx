@@ -1,12 +1,13 @@
 import React,{useEffect,useState} from "react";
 import Evento from "../Components/Evento";
 import Footer from "../Components/Footer";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function Confirmar(){
 
     const [materias,setMateria] = useState([]);
-
+    let navigate = useNavigate();
 
     const backend = 'http://localhost/RevistaDigital_API';
 
@@ -20,10 +21,20 @@ export default function Confirmar(){
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             },
         });
-
+    
+        if(api.status == 401){
+            Swal.fire({
+                title: "Usuario sem permissão!",
+                icon: "error",
+                confirmButtonText: "OK"
+            })
+            setTimeout(() => {
+                navigate('/')
+            }, 1000);
+        }
         const data = await api.json();
-        setMateria(data)
-        console.log(materias);
+            setMateria(data)
+            console.log(materias);
     }
     async function deleteNull(id){
         try{

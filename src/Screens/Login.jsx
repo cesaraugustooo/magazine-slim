@@ -36,6 +36,21 @@ export default function Login(){
             body: JSON.stringify(data)
           });
           console.log('status',api.status)
+          if(api.status == 401){
+            navigate("/login");
+            Swal.fire({
+              title: "Login invalido!",
+              icon: "error",
+              confirmButtonText: "OK"
+            });
+          }else{
+            navigate("/");
+            Swal.fire({
+              title: "Sucesso",
+              icon: "success",
+              confirmButtonText: "OK"
+            })
+          }
           let response = await api.json();
           let token = response.jwt.token;
 
@@ -43,23 +58,10 @@ export default function Login(){
           localStorage.setItem('id',response.jwt.payload.id_user)
           localStorage.setItem('token', token)
 
-      
+          console.log(api.status)
 
 
-          if(api.status == 200){
-              navigate("/");
-              Swal.fire({
-                title: "Sucesso",
-                icon: "success",
-                confirmButtonText: "OK"
-              })
-          }else{
-            Swal.fire({
-              title: "Login invalido!",
-              icon: "error",
-              confirmButtonText: "OK"
-            });
-          }
+         
           verifyToken();
 
       }catch{
@@ -88,7 +90,7 @@ export default function Login(){
                 <input type="password" placeholder=" " ref={passwordRef} />
               </label>
               <button type="submit" onClick={(e)=>Login(e)}>Conectar</button>
-              <p>Não possui uma conta? <a className="cadatrarse" href="">cadastre-se</a></p>
+              <p>Não possui uma conta? <Link to='/cadastrarse'><a className="cadatrarse" href="">cadastre-se</a></Link></p>
             </form>
           </div>
         </div>

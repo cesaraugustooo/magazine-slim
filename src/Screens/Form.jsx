@@ -2,10 +2,10 @@ import react, {useRef,useEffect,useState} from "react";
 import Evento from "../Components/Evento";
 import Swal from "sweetalert2";
 import Footer from "../Components/Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Formulario(){
     const backend = 'http://localhost/RevistaDigital_API/'
-    // const [success,setSuccess] = useState([false]);
 
     let titulo_postRef = useRef(null);
     let fileInputRef = useRef(null);
@@ -14,21 +14,43 @@ export default function Formulario(){
     let titulo2_postRef = useRef(null);
     let fileInputRef2 = useRef(null);
     let descricao_postRef2 = useRef(null);
+    let navigate = useNavigate();
 
-    function successF(){
-        Swal.fire({
-            title: "Sucesso!",
-            icon: "success",
-            confirmButtonText: "OK"
-          });
-          
+   
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            Swal.fire({
+                title: "Token ausente!",
+                icon: "warning",
+                confirmButtonText: "OK"
+            });
+            navigate('/');
+        } else {
+            getNull();
+        }
+    }, []);
+
+    async function getNull() {
+        const api = await fetch(`${backend}/posts/null`,{
+            headers:{"Content-Type":"application/json",
+                "Authorization": `Bearer ${localStorage.getItem('token')}`
+            },
+        });
+    
+        if(api.status == 401){
+            Swal.fire({
+                title: "Usuario sem permissão!",
+                icon: "error",
+                confirmButtonText: "OK"
+            })
+            setTimeout(() => {
+                navigate('/')
+            }, 1000);
+        }
     }
-    // useEffect(() => {
-    //     if (success) {
-    //         successF();
-    //         setTimeout(() => setSuccess(false), 100); 
-    //     }
-    // }, [success]);
+
     async function post(event){
 
         event.preventDefault();
@@ -40,6 +62,7 @@ export default function Formulario(){
         let fileInputRef3 = fileInputRef2.current.files[0].name;
         let descricao_post2 = descricao_postRef2.current.value;
         try{
+
             const dados ={
                 titulo_post: titulo_post,
                 foto_post: `http://localhost/RevistaDigital_API/images/${fileInput}`,
@@ -99,7 +122,7 @@ export default function Formulario(){
             console.error("Erro ao enviar:", error);
         }
     }
-    
+
     return(
         <>
         <Evento></Evento>
