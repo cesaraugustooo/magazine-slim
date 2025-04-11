@@ -1,7 +1,9 @@
 import React,{use, useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 
 export default function Perfil(){
     const [user,setUser] = useState([]);
+    const [post,setPost] = useState([]);
 
     async function getUser(){
         try{
@@ -14,9 +16,32 @@ export default function Perfil(){
         }
 
     }
+    async function uploadFoto(){
+
+        try{
+            const api = await fetch(`http://localhost/RevistaDigital_API/user/${localStorage.getItem('id')}`,{
+                method: 'POST'
+                 
+            });
+    
+        }catch(error){
+            console.error('Erro', error)
+        }
+    }
+    async function getPosts(){
+        try{
+            const api = await fetch(`http://localhost/RevistaDigital_API/posts/user/${localStorage.getItem('id')}`);
+            const data = await api.json();
+    
+            setPost(data)
+        }catch(error){
+            console.error('Erro', error)
+        }
+    }
     useEffect(()=>{
         getUser();
-    })
+        getPosts();
+    },[])
     return(
         <>
         {
@@ -28,7 +53,20 @@ export default function Perfil(){
             </div>
         </div>
         }
+        <div className="row-perfil">
+            <div className="seus-posts"><h1>Seus posts</h1></div>
+            <div className="espaco">
+                {post.map((postagem)=>(
+                    <div className="meus-posts"><Link to={{pathname: `/noticia/${postagem.id_post}`}}><img src={postagem.foto_post} alt="" /></Link></div>
+                    
+                ))}
+            </div>
+        </div>
+        <div className="modal">
+            
+        </div>
         </>
+
     );
 
 }
