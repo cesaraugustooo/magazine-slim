@@ -1,11 +1,23 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import menu from '../assets/menu.png';
 import logo from '../assets/image-removebg-preview (10).png';
 import { BrowserRouter, Link } from "react-router-dom";
 
 export default function Menu() {
-    useEffect(()=>{
+    const [user,setUser] = useState([]);
+    async function getUser(){
+        try{
+        const api = await fetch(`http://localhost/RevistaDigital_API/users/${localStorage.getItem('id')}`);
+        const data = await api.json();
 
+        setUser(data)
+        }catch(error){
+            console.error('Erro', error)
+        }
+
+    }
+    useEffect(()=>{
+        getUser();
     },[])
     return (
         <>
@@ -17,9 +29,10 @@ export default function Menu() {
                 </a>
             </div>
            
-            <div className="logo">
-                <img src={logo} alt="Logo" />
+            <Link to='/perfil'><div className="logo">
+                <img className="profile-pic2" src={user.foto_usuario} alt="" />
             </div>
+            </Link>
 
             <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div className="offcanvas-header">

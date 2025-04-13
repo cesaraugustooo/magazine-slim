@@ -59,9 +59,10 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  position: relative;
-  left: 78%;   
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: 94%;   
 }
 .logo img{
   height: 150%;
@@ -465,6 +466,14 @@ ul,li{
   object-fit: cover;
   border: 4px solid #a1a5d3;
 }
+.profile-pic2 {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgb(0, 0, 0);
+}
+
 
 .profile-info {
   flex: 1;
@@ -542,11 +551,24 @@ ul,li{
   height: 100%;
 }
 .modal{
+  display:none;
   position: absolute;
-  width: 500px;
-  top: 0;
-  height: 500px;
-  background-color: aqua;
+  width: 35%;
+  top: 25%;
+  left: 32.5%;
+  height: 50%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #3e3e3e;
+}
+.modal h5{
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  left: 95%;
 }
 @media (max-width: 900px) {
   .row-perfil{
@@ -557,4 +579,14 @@ ul,li{
   .row-perfil{
     width: 90%;
   }
+}
+#uploadForm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.modal.open{
+  display: flex;
+
 }
