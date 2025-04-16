@@ -412,6 +412,9 @@ ul,li{
   border-radius: 4px;
   width: 100%;
 }
+input:focus{
+  outline: none;
+}
 
 .login-box button {
   margin-left: 15%;

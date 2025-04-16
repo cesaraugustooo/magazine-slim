@@ -4,9 +4,10 @@ import { useParams,Link } from "react-router-dom";
 export default function Noticia() {
     const [noticias, setNoticias] = useState([]);
     const [nomeCategoria, setCategoria] = useState([]);
+    const [ip,setIp] = useState([]);
 
-    const endpointPost = "http://localhost/RevistaDigital_API/posts/categoria";
-    const endpointCategoria = "http://localhost/RevistaDigital_API/categorias";
+    const endpointPost = "http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/posts/categoria";
+    const endpointCategoria = "http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/categorias";
 
     let { id } = useParams();
     let path = `noticia/${id}` 

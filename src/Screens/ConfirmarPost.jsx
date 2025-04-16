@@ -5,7 +5,7 @@ import { Link,useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function Confirmar(){
-    const serverLinux = 'http://localhost/RevistaDigital_API';
+    const serverLinux = 'http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API';
     const serverWindows = 'http://localhost/RevistaDigital_API' 
 
 
@@ -19,7 +19,7 @@ export default function Confirmar(){
     },[]);
 
     async function getNull() {
-        const api = await fetch(`${serverWindows}/posts/null`,{
+        const api = await fetch(`${serverLinux}/posts/null`,{
             headers:{"Content-Type":"application/json",
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             },
@@ -32,7 +32,7 @@ export default function Confirmar(){
                 confirmButtonText: "OK"
             })
             setTimeout(() => {
-                navigate('/')
+                navigate('/home')
             }, 1000);
         }
         const data = await api.json();
@@ -41,7 +41,7 @@ export default function Confirmar(){
     }
     async function deleteNull(id){
         try{
-            const response = await fetch(`${serverWindows}/posts/${id}`,{
+            const response = await fetch(`${serverLinux}/posts/${id}`,{
                 method: 'DELETE',
                 headers:{"Content-Type":"application/json",
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -58,7 +58,7 @@ export default function Confirmar(){
             const data={
                 status_post: 1,
             }
-            const response = await fetch(`${serverWindows}/posts/${id}`,{
+            const response = await fetch(`${serverLinux}/posts/${id}`,{
                 method: 'PATCH',
                 headers:{"Content-Type":"application/json",
                     "Authorization": `Bearer ${localStorage.getItem('token')}`

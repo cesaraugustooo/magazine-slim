@@ -11,7 +11,7 @@ export default function InNoticia(){
     const {param} = useParams();
     let comentarioRef = useRef(null);
 
-    const serverLinux = 'http://localhost/RevistaDigital_API';
+    const serverLinux = 'http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API';
     const serverWindows = 'http://localhost/RevistaDigital_API'
     
     useEffect(()=>{
@@ -20,13 +20,13 @@ export default function InNoticia(){
     },[param])
 
     async function getId(id){
-        const api = await fetch(`${serverWindows}/posts/${id}`)
+        const api = await fetch(`${serverLinux}/posts/${id}`)
         const response = await api.json();
 
         setNoticia(response);
 
     }async function getComentarios(id){
-        const api = await fetch(`${serverWindows}/comentarios/idpost/${id}`)
+        const api = await fetch(`${serverLinux}/comentarios/idpost/${id}`)
         const response = await api.json();
 
         setComentario(response);
@@ -37,10 +37,10 @@ export default function InNoticia(){
         const data ={
             conteudo_comentario: comentarioRef.current.value,
             categorias_id_categoria: 1,
-            usuarios_id_usuario: localStorage.getItem('id'),
-            posts_id_post: param
+            usuarios_id_usuario: parseInt(localStorage.getItem('id')),
+            posts_id_post: parseInt(param)
         }
-            const api = await fetch(`${serverWindows}/comentarios`,{
+            const api = await fetch(`${serverLinux}/comentarios`,{
                 method: 'POST',
                 body: JSON.stringify(data)
             })

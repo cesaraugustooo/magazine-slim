@@ -5,8 +5,8 @@ import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
 
 export default function Formulario(){
-    const backend = 'http://localhost/RevistaDigital_API/'
-    const serverLinux = 'http://localhost/RevistaDigital_API';
+    const backend = process.env.REACT_APP_API_URL;
+    const serverLinux = 'http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API';
     const serverWindows = 'http://localhost/RevistaDigital_API/'
 
     let titulo_postRef = useRef(null);
@@ -35,7 +35,7 @@ export default function Formulario(){
     }, []);
 
     async function getNull() {
-        const api = await fetch(`${backend}/posts/null`,{
+        const api = await fetch(`${serverLinux}/posts/null`,{
             headers:{"Content-Type":"application/json",
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             },
@@ -67,13 +67,13 @@ export default function Formulario(){
 
             const dados ={
                 titulo_post: titulo_post,
-                foto_post: `${serverWindows}/images/${fileInput}`,
+                foto_post: `${serverLinux}/images/${fileInput}`,
                 descricao_post: descricao_post,
-                usuarios_id_usuario: localStorage.getItem('id'),
-                categorias_id_categoria: categorias_id_categoria,
+                usuarios_id_usuario: parseInt(localStorage.getItem('id')),
+                categorias_id_categoria: parseInt(categorias_id_categoria),
                 status_post: 0,
                 sub_titulo_post: titulo3_postRef,
-                sub_foto_post: `${serverWindows}/images/${fileInputRef3}`,
+                sub_foto_post: `${serverLinux}/images/${fileInputRef3}`,
                 sub_descricao_post: descricao_post2
             }
             let arq = fileInputRef.current.files[0]
@@ -84,18 +84,18 @@ export default function Formulario(){
             let formData2 = new FormData();
             formData2.append('file',sub_arq);
 
-            const responseImage = await fetch(`${serverWindows}/posts/images`, {
+            const responseImage = await fetch(`${serverLinux}/posts/images`, {
                 method: 'POST',
                 body: formData,
             });
-            const responseImage2 = await fetch(`${serverWindows}/posts/images`, {
+            const responseImage2 = await fetch(`${serverLinux}/posts/images`, {
                 method: 'POST',
                 body: formData2,
             });
 
             console.log(dados)
             console.log('Enviando dados...')
-            const response = await fetch(`${serverWindows}/posts`, {
+            const response = await fetch(`${serverLinux}/posts`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

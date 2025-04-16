@@ -7,7 +7,7 @@ export default function Menu() {
     const [user,setUser] = useState([]);
     async function getUser(){
         try{
-        const api = await fetch(`http://localhost/RevistaDigital_API/users/${localStorage.getItem('id')}`);
+        const api = await fetch(`http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/users/${localStorage.getItem('id')}`);
         const data = await api.json();
 
         setUser(data)

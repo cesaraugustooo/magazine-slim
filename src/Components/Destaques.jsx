@@ -5,7 +5,7 @@ export default function Destaques(){
     const [data,innerData] = useState([]);
     useEffect(()=>{
         async function getDestaques(){
-            const api = await fetch('http://localhost/RevistaDigital_API/posts');
+            const api = await fetch('http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/posts');
     
             const data = await api.json();
 
