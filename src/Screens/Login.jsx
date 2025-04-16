@@ -8,9 +8,11 @@ export default function Login(){
     let passwordRef = useRef(null);
     let navigate = useNavigate();
 
+    const serverLinux = 'http://localhost/RevistaDigital_API';
+    const serverWindows = 'http://localhost/RevistaDigital_API'
     async function verifyToken() {
      
-      const token2 = await fetch('http://localhost/RevistaDigital_API/verify',{
+      const token2 = await fetch(`${serverWindows}/verify`,{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -30,7 +32,7 @@ export default function Login(){
             senha_usuario: password
           }
 
-          const api = await fetch('http://localhost/RevistaDigital_API/login',{
+          const api = await fetch(`${serverWindows}/login`,{
             method: 'POST',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(data)

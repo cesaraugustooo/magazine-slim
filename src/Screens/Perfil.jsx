@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 export default function Perfil(){
     const [user,setUser] = useState([]);
     const [post,setPost] = useState([]);
+    const serverLinux = 'http://localhost/RevistaDigital_API';
+    const serverWindows = 'http://localhost/RevistaDigital_API'
 
     let fotoRef = useRef(null);
 
@@ -26,7 +28,7 @@ export default function Perfil(){
 
     async function getUser(){
         try{
-        const api = await fetch(`http://localhost/RevistaDigital_API/users/${localStorage.getItem('id')}`);
+        const api = await fetch(`${serverWindows}/users/${localStorage.getItem('id')}`);
         const data = await api.json();
 
         setUser(data)
@@ -38,7 +40,7 @@ export default function Perfil(){
     async function uploadFoto(){
 
         try{
-            const api = await fetch(`http://localhost/RevistaDigital_API/user/${localStorage.getItem('id')}`,{
+            const api = await fetch(`${serverWindows}/user/${localStorage.getItem('id')}`,{
                 method: 'POST'
                  
             });
@@ -49,7 +51,7 @@ export default function Perfil(){
     }
     async function getPosts(){
         try{
-            const api = await fetch(`http://localhost/RevistaDigital_API/posts/user/${localStorage.getItem('id')}`);
+            const api = await fetch(`${serverWindows}/posts/user/${localStorage.getItem('id')}`);
             const data = await api.json();
     
             setPost(data)
@@ -64,14 +66,14 @@ export default function Perfil(){
             formData.append('file',fotoRef.current.files[0]);
 
 
-            const api = await fetch(`http://localhost/RevistaDigital_API/posts/images`,{
+            const api = await fetch(`${serverWindows}/posts/images`,{
                 method: 'POST',
                 body: formData
             });
             const data = {
-                foto_usuario: `http://localhost/RevistaDigital_API/images/${fotoRef.current.files[0].name}`
+                foto_usuario: `${serverWindows}/images/${fotoRef.current.files[0].name}`
             }
-            const api2 = await fetch(`http://localhost/RevistaDigital_API/users/${localStorage.getItem('id')}`,{
+            const api2 = await fetch(`${serverWindows}/users/${localStorage.getItem('id')}`,{
                 method: 'PUT',
                 body: JSON.stringify(data)
             });
