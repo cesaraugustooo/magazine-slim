@@ -26,9 +26,9 @@ export default function Home(){
             console.error('Erro',error);
         }
     }
-    useEffect(()=>{
-        verifyToken();
-    })
+    // useEffect(()=>{
+    //     verifyToken();
+    // },[])
     return(
         <>
             <Evento></Evento>

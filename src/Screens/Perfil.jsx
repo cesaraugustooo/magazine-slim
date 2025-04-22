@@ -95,7 +95,11 @@ export default function Perfil(){
             <img className="profile-pic" src={`${ process.env.REACT_APP_API_URL}/images/${user.foto_usuario}`} alt="" />
             <div className="profile-info">
             <h2>{user.user_usuario}</h2>
-            <button id="btn" className="btn-upload" onClick={openModal}>Atualizar Foto</button>
+            <button id="btn" className="btn-upload" onClick={openModal}>Atualizar Foto</button>            
+            <Link to='/postar'><button id="btn" className="btn-upload" >Fazer postagem</button></Link>
+            <Link to='/'><button id="btn" className=" btn btn-danger" >Sair</button></Link>
+
+
             </div>
         </div>
         }

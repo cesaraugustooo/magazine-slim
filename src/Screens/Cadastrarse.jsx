@@ -20,7 +20,7 @@ export default function Cadastrarse(){
           method: 'POST',
           body: JSON.stringify(data)
         })
-        navigate('/login');
+        navigate('/');
       }catch{
 
       }

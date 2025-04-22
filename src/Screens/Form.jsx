@@ -27,30 +27,28 @@ export default function Formulario(){
                 icon: "warning",
                 confirmButtonText: "OK"
             });
-            navigate('/');
-        } else {
-            getNull();
-        }
+            navigate('/home');
+        } 
     }, []);
 
-    async function getNull() {
-        const api = await fetch(`${serverLinux}/posts/null`,{
-            headers:{"Content-Type":"application/json",
-                "Authorization": `Bearer ${localStorage.getItem('token')}`
-            },
-        });
+    // async function getNull() {
+    //     const api = await fetch(`${serverLinux}/posts/null`,{
+    //         headers:{"Content-Type":"application/json",
+    //             "Authorization": `Bearer ${localStorage.getItem('token')}`
+    //         },
+    //     });
     
-        if(api.status == 401){
-            Swal.fire({
-                title: "Usuario sem permissão!",
-                icon: "error",
-                confirmButtonText: "OK"
-            })
-            setTimeout(() => {
-                navigate('/')
-            }, 1000);
-        }
-    }
+    //     if(api.status == 401){
+    //         Swal.fire({
+    //             title: "Usuario sem permissão!",
+    //             icon: "error",
+    //             confirmButtonText: "OK"
+    //         })
+    //         setTimeout(() => {
+    //             navigate('/home')
+    //         }, 1000);
+    //     }
+    // }
 
     async function post(event){
 
