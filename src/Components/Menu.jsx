@@ -7,7 +7,7 @@ export default function Menu() {
     const [user,setUser] = useState([]);
     async function getUser(){
         try{
-        const api = await fetch(`http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/users/${localStorage.getItem('id')}`);
+        const api = await fetch(`${process.env.REACT_APP_API_URL}/users/${localStorage.getItem('id')}`);
         const data = await api.json();
 
         setUser(data)
@@ -30,7 +30,7 @@ export default function Menu() {
             </div>
            
             <Link to='/perfil'><div className="logo">
-                <img className="profile-pic2" src={user.foto_usuario} alt="" />
+                <img className="profile-pic2" src={`${process.env.REACT_APP_API_URL}/images/${user.foto_usuario}`} alt="" />
             </div>
             </Link>
 
@@ -42,7 +42,7 @@ export default function Menu() {
                 <div className="offcanvas-body">
                     <div className="column">
                         <ul className="list-group">
-                            <li className="list-group-item hover"><Link to='/'>Inicio</Link> </li>
+                            <li className="list-group-item hover"><Link to='/home'>Inicio</Link> </li>
                             <li className="list-group-item hover"><Link to='/postar'>Postar</Link> </li>
                             <li className="list-group-item hover"><Link to='/confirmar'>Confirmar Posts</Link></li>
                         </ul>

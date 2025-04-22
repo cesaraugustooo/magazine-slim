@@ -5,7 +5,7 @@ import { Link,useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function Confirmar(){
-    const serverLinux = 'http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API';
+    const serverLinux = process.env.REACT_APP_API_URL;
     const serverWindows = 'http://localhost/RevistaDigital_API' 
 
 
@@ -84,7 +84,7 @@ export default function Confirmar(){
                 {materias.map((post)=>
                                     <div className="card-post-view" key={post.id_post}>
                                     <div className="image-post-view">
-                                        <Link to={{pathname: `/noticia/${post.id_post}`}}><img src={post.foto_post} alt="" /></Link>
+                                        <Link to={{pathname: `/noticia/${post.id_post}`}}><img src={`${process.env.REACT_APP_API_URL}/images/${post.foto_post}`} alt="" /></Link>
                                     </div>
                                     <div className="info-post-view">
                                             <div className="title">

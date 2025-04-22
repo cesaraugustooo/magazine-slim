@@ -5,8 +5,7 @@ import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
 
 export default function Formulario(){
-    const backend = process.env.REACT_APP_API_URL;
-    const serverLinux = 'http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API';
+    const serverLinux = process.env.REACT_APP_API_URL;
     const serverWindows = 'http://localhost/RevistaDigital_API/'
 
     let titulo_postRef = useRef(null);
@@ -67,13 +66,13 @@ export default function Formulario(){
 
             const dados ={
                 titulo_post: titulo_post,
-                foto_post: `${serverLinux}/images/${fileInput}`,
+                foto_post: `${fileInput}`,
                 descricao_post: descricao_post,
                 usuarios_id_usuario: parseInt(localStorage.getItem('id')),
                 categorias_id_categoria: parseInt(categorias_id_categoria),
                 status_post: 0,
                 sub_titulo_post: titulo3_postRef,
-                sub_foto_post: `${serverLinux}/images/${fileInputRef3}`,
+                sub_foto_post: `${fileInputRef3}`,
                 sub_descricao_post: descricao_post2
             }
             let arq = fileInputRef.current.files[0]

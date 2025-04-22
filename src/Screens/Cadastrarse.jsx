@@ -16,7 +16,7 @@ export default function Cadastrarse(){
           senha_usuario: senha.current.value,
           nivel: 'Usuario'
         }
-        const api = await fetch('http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/users',{
+        const api = await fetch(`${process.env.REACT_APP_API_URL}/users`,{
           method: 'POST',
           body: JSON.stringify(data)
         })

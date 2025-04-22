@@ -11,7 +11,7 @@ export default function InNoticia(){
     const {param} = useParams();
     let comentarioRef = useRef(null);
 
-    const serverLinux = 'http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API';
+    const serverLinux = process.env.REACT_APP_API_URL;
     const serverWindows = 'http://localhost/RevistaDigital_API'
     
     useEffect(()=>{
@@ -68,11 +68,11 @@ export default function InNoticia(){
                 <h2>{noticia.titulo_post}</h2>
                 <h5>{noticia.sub_titulo_post}</h5>
                 <br/>
-                <img src={noticia.foto_post} alt="" />
+                <img src={`${process.env.REACT_APP_API_URL}/images/${noticia.foto_post}`} alt="" />
                 <br/>
                 <p>{noticia.descricao_post}</p>
                 <br/>
-                <img src={noticia.sub_foto_post} alt="" />
+                <img src={`${process.env.REACT_APP_API_URL}/images/${noticia.sub_foto_post}`} alt="" />
                 <br/>
                 <p>{noticia.sub_descricao_post}</p>
                 <br/>
@@ -93,7 +93,7 @@ export default function InNoticia(){
      <div className="comentario">
      <div className="user-info">
         <div className="img-com">
-            <img src={comentarios.foto_usuario} alt="" />
+            <img src={`${process.env.REACT_APP_API_URL}/images/${comentarios.foto_usuario}`} alt="" />
         </div>
         <h5>{comentarios.user_usuario}</h5>
      </div>

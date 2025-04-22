@@ -5,7 +5,7 @@ export default function Destaques(){
     const [data,innerData] = useState([]);
     useEffect(()=>{
         async function getDestaques(){
-            const api = await fetch('http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/posts');
+            const api = await fetch(`${process.env.REACT_APP_API_URL}/posts`);
     
             const data = await api.json();
 
@@ -25,7 +25,7 @@ export default function Destaques(){
             <div className="row-noticias" id="noticias-home">
                 {data.slice(0,4).map((noticia) => 
                      <div key={noticia.id_post} className="not">
-                     <Link className="link" to={{pathname: `/noticia/${noticia.id_post}`}}><img src={noticia.foto_post} alt="" /></Link>
+                     <Link className="link" to={{pathname: `/noticia/${noticia.id_post}`}}><img src={`${process.env.REACT_APP_API_URL}/images/${noticia.foto_post}`} alt="" /></Link>
                      <h5  className="title-not">{noticia.titulo_post}</h5>
                  </div>
 

@@ -6,8 +6,8 @@ export default function Noticia() {
     const [nomeCategoria, setCategoria] = useState([]);
     const [ip,setIp] = useState([]);
 
-    const endpointPost = "http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/posts/categoria";
-    const endpointCategoria = "http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/categorias";
+    const endpointPost = `${process.env.REACT_APP_API_URL}/posts/categoria`;
+    const endpointCategoria = `${process.env.REACT_APP_API_URL}/categorias`;
 
     let { id } = useParams();
     let path = `noticia/${id}` 
@@ -55,7 +55,7 @@ export default function Noticia() {
             <div className="row-getcate">
                 {noticias.length > 0 ?  noticias.map((noticia) => (
                     <div key={noticia.id_post} className="not">
-                        <Link className="link" to={{pathname: `/noticia/${noticia.id_post}`}}><img src={noticia.foto_post} alt="" />
+                        <Link className="link" to={{pathname: `/noticia/${noticia.id_post}`}}><img src={`${process.env.REACT_APP_API_URL}/images/${noticia.foto_post}`} alt="" />
                        </Link>
                        <div className="title-not">
                             <h5  className="">{noticia.titulo_post}</h5>

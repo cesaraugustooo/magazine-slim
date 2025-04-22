@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Perfil(){
     const [user,setUser] = useState([]);
     const [post,setPost] = useState([]);
-    const serverLinux = 'http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API/';
+    const serverLinux = process.env.REACT_APP_API_URL;
     const serverWindows = 'http://localhost/RevistaDigital_API'
 
     let fotoRef = useRef(null);
@@ -71,7 +71,7 @@ export default function Perfil(){
                 body: formData
             });
             const data = {
-                foto_usuario: `${serverLinux}/images/${fotoRef.current.files[0].name}`
+                foto_usuario: `${fotoRef.current.files[0].name}`
             }
             const api2 = await fetch(`${serverLinux}/users/${localStorage.getItem('id')}`,{
                 method: 'PUT',
@@ -92,7 +92,7 @@ export default function Perfil(){
         <>
         {
         <div class="profile-card">
-            <img className="profile-pic" src={user.foto_usuario} alt="" />
+            <img className="profile-pic" src={`${ process.env.REACT_APP_API_URL}/images/${user.foto_usuario}`} alt="" />
             <div className="profile-info">
             <h2>{user.user_usuario}</h2>
             <button id="btn" className="btn-upload" onClick={openModal}>Atualizar Foto</button>
@@ -103,7 +103,7 @@ export default function Perfil(){
             <div className="seus-posts"><h1>Seus posts</h1></div>
             <div className="espaco">
                 {post.map((postagem)=>(
-                    <div className="meus-posts"  key={postagem.id_post}><Link to={{pathname: `/noticia/${postagem.id_post}`}}><img src={postagem.foto_post} alt="" /></Link></div>
+                    <div className="meus-posts"  key={postagem.id_post}><Link to={{pathname: `/noticia/${postagem.id_post}`}}><img src={`${ process.env.REACT_APP_API_URL}/images/${postagem.foto_post}`} alt="" /></Link></div>
                     
                 ))}
             </div>

@@ -18,11 +18,11 @@ function App() {
         <Header></Header>
         <Routes>
           <Route path='/confirmar' element={<Confirmar></Confirmar>}></Route>
-          <Route path='/' element={<Home />}></Route>
+          <Route path='/home' element={<Home />}></Route>
           <Route path='/postar' element={<Formulario></Formulario>}></Route>
           <Route path='/noticias/:id' element={<Noticia></Noticia>}></Route>
           <Route path='noticia/:param' element={<InNoticia></InNoticia>}></Route>
-          <Route path='/login' element={<Login></Login>}></Route>
+          <Route path='/' element={<Login></Login>}></Route>
           <Route path='/cadastrarse' element={<Cadastrarse></Cadastrarse>}></Route>
           <Route path='/perfil' element={<Perfil></Perfil>}></Route>
 

@@ -8,7 +8,11 @@ export default function Login(){
     let passwordRef = useRef(null);
     let navigate = useNavigate();
 
-    const serverLinux = 'http://10.188.34.134:8000/cesar-ferreira/RevistaDigital_API';
+    useEffect(()=>{
+      localStorage.clear()
+    })
+
+    const serverLinux = process.env.REACT_APP_API_URL;
     const serverWindows = 'http://localhost/RevistaDigital_API'
     async function verifyToken() {
      
@@ -39,14 +43,14 @@ export default function Login(){
           });
           console.log('status',api.status)
           if(api.status == 401){
-            navigate("/login");
+            navigate("/");
             Swal.fire({
               title: "Login invalido!",
               icon: "error",
               confirmButtonText: "OK"
             });
           }else{
-            navigate("/");
+            navigate("/home");
             Swal.fire({
               title: "Sucesso",
               icon: "success",
